@@ -57,10 +57,10 @@ func setChargingStaus() {
 
 	val := -1.0
 
-	switch string(bytes) {
-	case "Charging":
+	switch strings.ToLower(strings.TrimSpace(string(bytes))) {
+	case "charging":
 		val = 1
-	case "Not Charging":
+	case "not charging":
 		val = 0
 	}
 
