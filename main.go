@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"os"
 	"strconv"
+	"strings"
 	"time"
 
 	"github.com/gorilla/mux"
@@ -41,7 +42,7 @@ func setMainPowerStatus() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	parsed, err := strconv.ParseFloat(string(bytes), 64)
+	parsed, err := strconv.ParseFloat(strings.TrimSpace(string(bytes)), 64)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -77,12 +78,12 @@ func setBatteryLevel() {
 		log.Fatal(err)
 	}
 
-	raw, err := strconv.ParseFloat(string(rawBytes), 64)
+	raw, err := strconv.ParseFloat(strings.TrimSpace(string(rawBytes)), 64)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	scale, err := strconv.ParseFloat(string(scaleBytes), 64)
+	scale, err := strconv.ParseFloat(strings.TrimSpace(string(scaleBytes)), 64)
 	if err != nil {
 		log.Fatal(err)
 	}
