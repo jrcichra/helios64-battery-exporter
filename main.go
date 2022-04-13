@@ -106,6 +106,8 @@ func collect() {
 func main() {
 	go collect()
 	prometheus.MustRegister(mainPowerStatus)
+	prometheus.MustRegister(batteryChargingStatus)
+	prometheus.MustRegister(batteryLevel)
 
 	r := mux.NewRouter()
 	r.Handle("/metrics", promhttp.Handler())
