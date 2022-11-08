@@ -13,8 +13,7 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            const repo = await github.repos.get(context.repo)
-            return repo.data
+            return context.repo.repo
       - name: Prepare
         id: prep
         run: |
