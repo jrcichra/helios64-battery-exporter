@@ -1,4 +1,4 @@
-FROM golang:1.22.4-bullseye
+FROM golang:1.23rc1-bullseye
 WORKDIR /app
 COPY . .
 RUN CGO_ENABLED=0 go build -o exporter
