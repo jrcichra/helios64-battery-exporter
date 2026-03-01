@@ -1,4 +1,4 @@
-FROM golang:1.25.6-bookworm
+FROM golang:1.26.0-bookworm
 WORKDIR /app
 COPY . .
 RUN CGO_ENABLED=0 go build -o exporter
